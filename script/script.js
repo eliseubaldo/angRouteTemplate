@@ -28,9 +28,15 @@ myApp.config(function($routeProvider){
 // Controllers for each route
 
 
-	myApp.controller('mainController', function($scope){
+	myApp.controller('mainController', function($scope, getSomeData){
+
+		getSomeData.getContact().success(function(games){
+			$scope.games = games;
+		});
 
 		$scope.message = 'Do not go where the path may lead, go instead where there is no path and leave a trail.';
+
+
 	});
 
 	myApp.controller('aboutController', function($scope){
